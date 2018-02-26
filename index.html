@@ -37,10 +37,10 @@ Fancy parts of site do not work in Edge or IE
     <h1>Software Setup</h1>
     <div class="textbox">
       <div>
-        <h2>1. Install Arduino IDE and Drivers</h2
+        <h2>1. Install Arduino IDE and Drivers</h2>
         <a href="https://www.arduino.cc/en/Main/Software" class="tutorialLink">Arduino IDE</a>
-        <a href="https://github.com/adafruit/Adafruit_Windows_Drivers/releases/download/2.2.0/adafruit_drivers_2.2.0.0.exe" class="tutorialLink">Windows Drivers</a><br/>
-        <p>Mac and Linux do not require the Windows drivers</p>
+        <a href="https://github.com/adafruit/Adafruit_Windows_Drivers/releases/download/2.2.0/adafruit_drivers_2.2.0.0.exe" class="tutorialLink">Windows 7 Drivers</a><br/>
+        <p>Mac, Windows 10, and Linux do not require the Windows 7 drivers</p>
       </div>
       <div>
         <h2>2. Add Adafruit Boards</h2>
@@ -48,12 +48,18 @@ Fancy parts of site do not work in Edge or IE
         <p>You can open the preferences through File > Preferences or ctrl+,</p>
         <p>https://adafruit.github.io/arduino-board-index/package_adafruit_index.json</p>
       </div>
-      <div class="tutorialTextRight">
+      <div>
         <h2>3. Install Board Through Board Manager</h2>
         <img src="img/Boardmanager.png" id="installBoardManager"></img>
         <p>You can open the board manager through Tools > Board > Boards Manager</p>
         <p>Search for "SAMD" and install Arduino SAMD Boards</p>
       </div>
+      <div>
+        <h2>4. Download Adafruit Dotstar Library</h2>
+        <a href="https://github.com/adafruit/Adafruit_DotStar/archive/master.zip" class="tutorialLink">Adafruit Dotstar Library</a>
+        <p>Unzip this file and drag it into Documents > Arduino > libraries</p>
+      </div>
+
   </div>
   </div>
   <div class="fullPage" id="hardware">
@@ -145,13 +151,15 @@ Fancy parts of site do not work in Edge or IE
     <p>Bat - Voltage input (battery, external power supply, etc.). Can receive voltages ranging from 3-6V and is completely separate from USB power.</p>
     <p>Gnd - Common Ground. Used for all logic and connections</p>
     <p>Rst - Not documented :/ you can probably connect this to ground to restart the board</p>
+    <p>7, 8 - Hidden pins, used for the Dotstar RGB LED</p>
     </div>
       <img id="pinout" src="img/trinketm0Vertical.png"></img>
     </div>
   </div>
   <div class="fullPage" id="builtInHardware" style="background-color:#111;">
-    <h1>Dotstar LED</h1>
+    <h1>Dotstar RGB LED</h1>
     <div class="textbox">
+      The Dotstar LED is built onto the Trinket
     </div>
   </div>
   <div class="fullPage" id="simpleio">

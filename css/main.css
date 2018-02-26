@@ -141,10 +141,6 @@
   padding-left: 14vmin;
   transition-duration: 0.5s;
 }
-.tutorialTextRight{
-  position: relative;
-  right: 0;
-}
 .leftTextbox{
   width: 47vw;
 }
