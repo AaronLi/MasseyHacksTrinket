@@ -9,10 +9,10 @@
     display: inline-block;
 }
 #coverImage{
-  width: 60vmin;
+  width: 40vmin;
   position: absolute;
   bottom: 5vh;
-  right: 0;
+  right: 1vw;
 }
 #addAdditionalBoards{
   width: 35vw;
@@ -91,7 +91,7 @@
 .textbox{
   background-color: #222;
   position: relative;
-  height: 82vh;
+  height: 81vh;
   margin-top: 1vh;
   margin-left: 2vw;
   margin-right: 2vw;
