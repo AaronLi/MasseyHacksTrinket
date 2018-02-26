@@ -151,6 +151,7 @@ Fancy parts of site do not work in Edge or IE
     <p>Bat - Voltage input (battery, external power supply, etc.). Can receive voltages ranging from 3-6V and is completely separate from USB power.</p>
     <p>Gnd - Common Ground. Used for all logic and connections</p>
     <p>Rst - Not documented :/ you can probably connect this to ground to restart the board</p>
+    <p> 13 - Hidden pin, used for builtin red LED</p>
     <p>7, 8 - Hidden pins, used for the Dotstar RGB LED</p>
     </div>
       <img id="pinout" src="img/trinketm0Vertical.png"></img>
@@ -159,7 +160,19 @@ Fancy parts of site do not work in Edge or IE
   <div class="fullPage" id="builtInHardware" style="background-color:#111;">
     <h1>Dotstar RGB LED</h1>
     <div class="textbox">
-      The Dotstar LED is built onto the Trinket
+      <p>The Dotstar LED is built onto the Trinket</p>
+      <code>
+        <p>#include &lt;Adafruit_DotStar.h&gt; // include the DotStar Library</br>
+          <br/>
+        int NUMPIXELS = 1; // There's only 1 DotStar on the board</br>
+        int DATAPIN = 7; // Pins 7 and 8 are used for communicating with the LED</br>
+        int CLOCKPIN = 8;</br>
+        <br/>
+        // Create a DotStar object</br>
+        Adafruit_DotStar strip = Adafruit_DotStar(
+  NUMPIXELS, DATAPIN, CLOCKPIN, DOTSTAR_BRG); </p>
+      </code>
+      <img id="pinout" src="img/dotstar.png"></img>
     </div>
   </div>
   <div class="fullPage" id="simpleio">

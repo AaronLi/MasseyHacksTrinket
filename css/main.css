@@ -40,10 +40,10 @@
   background-color: #444;
 }
 #pinTable th,td{
-  padding-left: 1vw;
-  padding-right: 1vw;
-  padding-top: 1vh;
-  padding-bottom: 1vh;
+  padding-left: 0.7vw;
+  padding-right: 0.7vw;
+  padding-top: 0.7vh;
+  padding-bottom: 0.7vh;
   text-align: center;
 }
 @keyframes focus {
@@ -142,7 +142,7 @@
   transition-duration: 0.5s;
 }
 .leftTextbox{
-  width: 47vw;
+  width: 50vw;
 }
 body{
   color: #FFF;
