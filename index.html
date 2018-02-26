@@ -59,6 +59,94 @@ Fancy parts of site do not work in Edge or IE
   <div class="fullPage" id="hardware">
     <h1>Hardware</h1>
     <div class="textbox">
+      <div class="leftTextbox">
+      <p>USB - Connected directly to USB port, you can receive 5v if USB is plugged in or supply 5v to power the board</p>
+      <p> 0, 1~, 2, 3, 4 - IO Pins. All pins can be used as Analog inputs, have togglable internal pullup and pulldown resistors, and can be used as interrupt pins. They can only provide 7mA of power each, don't connect them directly to motors!</p>
+      <table id="pinTable">
+        <caption>Additional Pin Info</caption>
+        <tr>
+          <th>Pin </th>
+          <th>Analog In</th>
+          <th>Alternate Function(s)</th>
+          <th>PWM</th>
+        </tr>
+        <tr>
+          <td>
+            0
+          </td>
+          <td>
+            A2
+          </td>
+          <td>
+            I2C SDA
+          </td>
+          <td>
+            ✓
+          </td>
+        </tr>
+        <tr>
+          <td>
+            1~
+          </td>
+          <td>
+            A0
+          </td>
+          <td>
+            10 Bit DAC, Capacitive Touch
+          </td>
+          <td>
+
+          </td>
+        </tr>
+        <tr>
+          <td>
+            2
+          </td>
+          <td>
+            A1
+          </td>
+          <td>
+            I2C SCL, SPI MISO
+          </td>
+          <td>
+            ✓
+          </td>
+        </tr>
+        <tr>
+          <td>
+            3
+          </td>
+          <td>
+            A3
+          </td>
+          <td>
+            SPI SCK, UART RX, Capacitive Touch
+          </td>
+          <td>
+            ✓
+          </td>
+        </tr>
+        <tr>
+          <td>
+            4
+          </td>
+          <td>
+            A4
+          </td>
+          <td>
+            SPI MOSI, UART TX, Capacitive Touch
+          </td>
+          <td>
+            ✓
+          </td>
+        </tr>
+    </table>
+    <p>3V - 3.3V Output, can provide up to 500mA</p>
+    <p>Bat - Voltage input (battery, external power supply, etc.). Can receive voltages ranging from 3-6V and is completely separate from USB power.</p>
+    <p>Gnd - Common Ground. Used for all logic and connections</p>
+    <p>Rst - Not documented :/ you can probably connect this to ground to restart the board</p>
+    </div>
+      <img id="pinout" src="img/trinketm0Vertical.png"></img>
     </div>
   </div>
   <div class="fullPage" id="builtInHardware" style="background-color:#111;">

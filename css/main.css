@@ -20,6 +20,32 @@
 #installBoardManager{
   width: 30vw;
 }
+#pinout{
+  transform: translateX(-50%) translateY(-50%);
+  width: 20vw;
+  top: 50%;
+  position: absolute;
+  right: -5vmax;
+}
+#pinTable{
+  background-color: #333;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+#pinTable tr:nth-child(odd){
+  background-color: #333;
+}
+#pinTable tr:nth-child(even){
+  background-color: #444;
+}
+#pinTable th,td{
+  padding-left: 1vw;
+  padding-right: 1vw;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+  text-align: center;
+}
 @keyframes focus {
   from{
     width: 14vmin;
@@ -118,6 +144,9 @@
 .tutorialTextRight{
   position: relative;
   right: 0;
+}
+.leftTextbox{
+  width: 47vw;
 }
 body{
   color: #FFF;
