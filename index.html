@@ -160,17 +160,42 @@ Fancy parts of site do not work in Edge or IE
   <div class="fullPage" id="builtInHardware" style="background-color:#111;">
     <h1>Dotstar RGB LED</h1>
     <div class="textbox">
+      <h2 class="tutorialSubtitle">Wiring:</h2>
       <p>The Dotstar LED is built onto the Trinket</p>
+      <h2 class="tutorialSubtitle">Code:</h2>
       <code>
-        <p>#include &lt;Adafruit_DotStar.h&gt; // include the DotStar Library</br>
+        <p style="background-color:#FFF;color:#000;display:inline-block;padding-right:2em;">
+          //Blinks red, green, and blue</br>
+          #include &lt;Adafruit_DotStar.h&gt; // include the DotStar Library</br>
           <br/>
         int NUMPIXELS = 1; // There's only 1 DotStar on the board</br>
         int DATAPIN = 7; // Pins 7 and 8 are used for communicating with the LED</br>
         int CLOCKPIN = 8;</br>
         <br/>
         // Create a DotStar object</br>
-        Adafruit_DotStar strip = Adafruit_DotStar(
-  NUMPIXELS, DATAPIN, CLOCKPIN, DOTSTAR_BRG); </p>
+        Adafruit_DotStar led = Adafruit_DotStar(
+  NUMPIXELS, DATAPIN, CLOCKPIN, DOTSTAR_BRG);</br>
+  void setup(){
+    <span style="padding:0 0 0 3em; display:block">
+    led.begin();</br>
+    led.show();
+  </span>
+}<br/><br/>
+  void loop(){<br/>
+    <span style="padding:0 0 0 3em; display:block">
+    led.setPixelColor(0,0xFF0000); //Set led to red</br>
+    led.show(); // Write information to LED </br>
+    delay(500); // Wait 500 milliseconds</br>
+    led.setPixelColor(0,0x00FF00); </br>
+    led.show(); </br>
+    delay(500); </br>
+    led.setPixelColor(0,0x0000FF); </br>
+    led.show();  </br>
+    delay(500); </br>
+
+    </span>
+  }<br/>&nbsp;
+ </p>
       </code>
       <img id="pinout" src="img/dotstar.png"></img>
     </div>
@@ -178,7 +203,131 @@ Fancy parts of site do not work in Edge or IE
   <div class="fullPage" id="simpleio">
     <h1>Simple IO</h1>
     <div class="textbox">
+      <div id="ledWiring">
+      <h2 class="tutorialSubtitle">LED Wiring:</h2>
+      <div style="float:left;">
+      <h3 class="tutorialSubtitle">Materials:</h3>
+      <table id="pinTable" style="position:static;transform:translateX(0%);">
+        <tr>
+          <th>
+            Material
+          </th>
+          <th>
+            #
+          </th>
+        </tr>
+        <tr>
+          <td>
+            5MM Red LED
+          </td>
+          <td>
+            1
+          </td>
+        </tr>
+        <tr>
+          <td>
+            220Ω Resistor <div class="resistorCanvas"><div class="resistorColourBar" style="background-color:#F00;"></div><div class="resistorColourBar" style="background-color:#F00;"></div><div style="background-color:#450F00;" class="resistorColourBar"></div><div style="background-color:#B16F27;" class="resistorColourBar"></div></div>
+          </td>
+          <td>
+            1
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Breadboard Wires
+          </td>
+          <td>
+            2
+          </td>
+        </tr>
+      </table>
     </div>
+      <div class="fritzingDiagram">
+      <h3 class="tutorialSubtitle">Fritzing Diagram:</h3>
+      <img class="wiringDiagram" src="img/basicLED.png"></img>
+    </div>
+    <div class="programCode">
+    <h3 class="tutorialSubtitle">Code:</h3>
+    <code style="float:left;">
+      <p style="background-color:#FFF;color:#000;display:inline-block;padding-right:2em;">
+        //Blinks LED on pin 0 on and off</br>
+      int LEDPIN = 0; // The LED is attached to pin 0</br>
+      <br/>
+void setup(){
+  <span style="padding:0 0 0 3em; display:block">
+  pinMode(LEDPIN,OUTPUT); //Lets the Arduino know that pin 0 is an output</br>
+</span>
+}<br/><br/>
+void loop(){<br/>
+  <span style="padding:0 0 0 3em; display:block">
+  pinMode(LEDPIN,HIGH); //Turn LEDPIN on</br>
+  delay(500); //wait 500 milliseconds</br>
+  pinMode(LEDPIN,LOW); //Turn LEDPIN off</br>
+  delay(500);
+  </span>
+}<br/>&nbsp;
+</p>
+    </code>
+    </div>
+  </div>
+  <div id="buttonWiring" style="float:left">
+    <h2 class="tutorialSubtitle">Button Wiring:</h2>
+    <div style="float:left;">
+    <h3 class="tutorialSubtitle">Materials:</h3>
+    <table id="pinTable" style="position:static;transform:translateX(0%);">
+      <tr>
+        <th>
+          Material
+        </th>
+        <th>
+          #
+        </th>
+      </tr>
+      <tr>
+        <td>
+          12mm Button
+        </td>
+        <td>
+          1
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Breadboard Wires
+        </td>
+        <td>
+          2
+        </td>
+      </tr>
+    </table>
+  </div>
+    <div class="fritzingDiagram">
+    <h3 class="tutorialSubtitle">Fritzing Diagram:</h3>
+    <img class="wiringDiagram" src="img/basicButton.png"></img>
+  </div>
+  <div class="programCode">
+  <h3 class="tutorialSubtitle">Code:</h3>
+  <code style="float:left;">
+    <p style="background-color:#FFF;color:#000;display:inline-block;padding-right:2em;">
+      //Prints to serial 0 when the button is pressed and 1 when it is released</br>
+    int BUTTONPIN = 0; // The Button is attached to pin 0</br>
+    <br/>
+void setup(){
+<span style="padding:0 0 0 3em; display:block">
+pinMode(BUTTONPIN,INPUT_PULLUP); //Assign pin 0 as an output</br>
+Serial.begin(115200); //Start talking to computer at a rate of 115200bps</br>
+</span>
+}<br/><br/>
+void loop(){<br/>
+<span style="padding:0 0 0 3em; display:block">
+Serial.println(digitalRead(BUTTONPIN)); //Print the value read on BUTTONPIN<br/>
+</span>
+}<br/>&nbsp;
+</p>
+  </code>
+  </div>
+  </div>
+  </div>
   </div>
   <div class="fullPage" id="advancedio" style="background-color:#111;">
     <h1>  Advanced IO</h1>

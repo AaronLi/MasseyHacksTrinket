@@ -125,6 +125,11 @@
   padding: 1vh 2vw 1vh 2vw;
   overflow-x: hidden;
 }
+.wiringDiagram{
+  background-color: #333;
+  width: 30vw;
+  padding: 1vh 2vw 1vh 2vw;
+}
 .tutorialLink{
   color: #FFF;
   text-decoration: none;
@@ -143,6 +148,29 @@
 }
 .leftTextbox{
   width: 50vw;
+}
+.tutorialSubtitle{
+  margin-bottom: 0;
+  margin-top: 0.5em;
+}
+.fritzingDiagram{
+  float: right;
+}
+.programCode{
+  float: left;
+}
+.resistorColourBar{
+  float: left;
+  margin-right:0.2vw;
+  width:1ex;
+  height:1em;
+}
+.resistorCanvas{
+  position: relative;
+  padding-left: 0.2vw;
+  height: 1em;
+  display: inline-block;
+  background-color: #EFD9B4;
 }
 body{
   color: #FFF;
