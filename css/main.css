@@ -7,6 +7,12 @@
     padding-left: 2vmax;
     padding-right: 2vmax;
     display: inline-block;
+    animation-name: slideIn;
+    animation-duration: 1.2s;
+    animation-delay: 0.1s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-out;
+    left: -100%;
 }
 #coverImage{
   width: 40vmin;
@@ -45,6 +51,14 @@
   padding-top: 0.7vh;
   padding-bottom: 0.7vh;
   text-align: center;
+}
+@keyframes slideIn{
+  from{
+    left: -100%;
+  }
+  to{
+    left: 0;
+  }
 }
 @keyframes focus {
   from{
