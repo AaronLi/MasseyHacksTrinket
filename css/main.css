@@ -178,3 +178,15 @@ body{
   font-family: 'Open Sans', sans-serif;
   overflow-x: hidden;
 }
+
+::-webkit-scrollbar {
+    width: 0.5em;
+    background-color: #222;
+}
+
+body::-webkit-scrollbar {
+    background-color: #000;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #333;
+}
