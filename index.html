@@ -5,6 +5,11 @@ Most pictures are taken from Adafruit.com
 Fancy parts of site do not work in Edge or IE
 -Aaron Li 2018
 -->
+<!--
+TODO
+Getting to know the software
+Advanced IO
+-->
 <html>
 <head>
   <title>
@@ -55,9 +60,10 @@ Fancy parts of site do not work in Edge or IE
         <p>Search for "SAMD" and install Arduino SAMD Boards</p>
       </div>
       <div>
-        <h2>4. Download Adafruit Dotstar Library</h2>
+        <h2>4. Download Arduino Libraries</h2>
         <a href="https://github.com/adafruit/Adafruit_DotStar/archive/master.zip" class="tutorialLink">Adafruit Dotstar Library</a>
-        <p>Unzip this file and drag it into Documents > Arduino > libraries</p>
+        <a href="https://github.com/adafruit/Adafruit_Sensor/archive/master.zip" class="tutorialLink">Adafruit Unified Sensor Library</a>
+        <p>Unzip the files and drag the folders into Documents > Arduino > libraries</p>
       </div>
 
   </div>
@@ -65,7 +71,7 @@ Fancy parts of site do not work in Edge or IE
   <div class="fullPage" id="hardware">
     <h1>Hardware</h1>
     <div class="textbox">
-      <div class="leftTextbox">
+      <div class="leftTextbox" style="float:left;">
       <p>USB - Connected directly to USB port, you can receive 5v if USB is plugged in or supply 5v to power the board</p>
       <p> 0, 1~, 2, 3, 4 - IO Pins. All pins can be used as Analog inputs, have togglable internal pullup and pulldown resistors, and can be used as interrupt pins. They can only provide 7mA of power each, don't connect them directly to motors!</p>
       <table id="pinTable">
@@ -160,6 +166,7 @@ Fancy parts of site do not work in Edge or IE
   <div class="fullPage" id="builtInHardware" style="background-color:#111;">
     <h1>Dotstar RGB LED</h1>
     <div class="textbox">
+      <div class="programCode">
       <h2 class="tutorialSubtitle">Wiring:</h2>
       <p>The Dotstar LED is built onto the Trinket</p>
       <h2 class="tutorialSubtitle">Code:</h2>
@@ -197,6 +204,7 @@ Fancy parts of site do not work in Edge or IE
   }<br/>&nbsp;
  </p>
       </code>
+    </div>
       <img id="pinout" src="img/dotstar.png"></img>
     </div>
   </div>
@@ -311,6 +319,7 @@ void loop(){<br/>
     <p style="background-color:#FFF;color:#000;display:inline-block;padding-right:2em;">
       //Prints to serial 0 when the button is pressed and 1 when it is released</br>
     int BUTTONPIN = 0; // The Button is attached to pin 0</br>
+    int buttonVal = 0;
     <br/>
 void setup(){
 <span style="padding:0 0 0 3em; display:block">
@@ -320,7 +329,8 @@ Serial.begin(115200); //Start talking to computer at a rate of 115200bps</br>
 }<br/><br/>
 void loop(){<br/>
 <span style="padding:0 0 0 3em; display:block">
-Serial.println(digitalRead(BUTTONPIN)); //Print the value read on BUTTONPIN<br/>
+buttonVal = digitalRead(BUTTONPIN); //Read the value on BUTTONPIN<br/>
+Serial.println(buttonVal); // print the value of the button <br/>
 </span>
 }<br/>&nbsp;
 </p>
@@ -332,6 +342,134 @@ Serial.println(digitalRead(BUTTONPIN)); //Print the value read on BUTTONPIN<br/>
   <div class="fullPage" id="advancedio" style="background-color:#111;">
     <h1>  Advanced IO</h1>
     <div class="textbox">
+      <h2>LIS3DH Triple Axis Accelerometer</h2>
+      <table id="pinTable" style="float:left;left:0;transform:translateX(0);width:60%;">
+        <caption>Pinout</caption>
+        <tr>
+          <th>
+            Pin
+          </th>
+          <th>
+            Function
+          </th>
+        </tr>
+        <tr>
+          <td>
+            Vin
+          </td>
+          <td>
+            Voltage Input - Power supply for the board, accepts anywhere from 3-5V
+          </td>
+        </tr>
+        <tr>
+          <td>
+            3Vo
+          </td>
+          <td>
+            Voltage Output - 3V power from the accelerometer's onboard regulator, supplies up to 100mA
+          </td>
+        </tr>
+        <tr>
+          <td>
+            GND
+          </td>
+          <td>
+            Common Ground - Used for power and logic
+          </td>
+        </tr>
+        <tr>
+          <td>
+            SCL
+          </td>
+          <td>
+            Clock Pin - Used for both I2C clock and SPI clock (SCK)
+          </td>
+
+        </tr>
+        <tr>
+          <td>
+            SDA
+          </td>
+          <td>
+            Data Pin - Used for I2C data and SPI communication from master to slave (MOSI)
+          </td>
+        </tr>
+        <tr>
+          <td>
+            SDO
+          </td>
+          <td>
+            Data Pin 2 - Used for I2C address selection or SPI slave to master communication (MISO)
+          </td>
+        </tr>
+        <tr>
+          <td>
+            CS
+          </td>
+          <td>
+            Chip Select - Used for selecting the active chip when in SPI mode
+          </td>
+        </tr>
+        <tr>
+          <td>
+            INT
+          </td>
+          <td>
+            Interrupt - Used for notifying the microcontroller of various events that the controller can be set to listen for (Tap, Double Tap, Motion, etc.)
+          </td>
+        </tr>
+        <tr>
+          <td>
+            A1, A2, A3
+          </td>
+          <td>
+            Analog Inputs - You can read values from 1.8V to 0.9V, tie unused analog pins to ground when reading analog
+          </td>
+        </tr>
+      </table>
+      <img id="pinout" src="img/LIS3DH.png"></img>
+      <div class="fritzingDiagram">
+        <h3 class="tutorialSubtitle">Wiring:</h3>
+        <img class="wiringDiagram" src="img/advancedIO.png"></img>
+      </div>
+        <div class="programCode">
+          <h3 class="tutorialSubtitle">Code:</h3>
+        <code style="float:left;">
+          <p style="background-color:#FFF;color:#000;display:inline-block;padding-right:2em;">
+            //Prints the values read from the accelerometer to the serial monitor<br/>
+            <br/>
+            #include &lt;Adafruit_LIS3DH.h&gt;</br>
+            #include &lt;Adafruit_Sensor.h&gt;</br></br>
+            Adafruit_LIS3DH lis = Adafruit_LIS3DH(); // initialize accelerometer in I2C mode<br/>
+          <br/>
+    void setup(){
+      <span style="padding:0 0 0 3em; display:block">
+      while(!Serial); // Wait for computer to listen on Serial</br>
+    </br>
+    Serial.begin(115200); //Begin printing to Serial at 115200bps</br>
+    Serial.println("LIS3DH Test!");</br></br>
+    if(!lis.begin(0x18)){
+        <span style="padding:0 0 0 3em; display:block">
+          Serial.println("Accelerometer initialization failed :(");</br>
+          while(1);</br>
+        </span>
+    }</br></br>
+    // replace with 2, 4, 8, or 16 to change range (m/s²)</br>
+    lis.setRange(LIS3DH_RANGE_4_G);</br>
+    Serial.print("Range = +/-")Serial.print(2&lt;&lt;lis.getRange());</br>
+    Serial.println("G");
+    </span>
+    }<br/><br/>
+    void loop(){<br/>
+      <span style="padding:0 0 0 3em; display:block">
+      sensors_event_t event;</br>
+      lis.getEvent(&event); // Read the sensor data and store it in the event object</br></br>
+      </span>
+    }<br/>&nbsp;
+    </p>
+        </code>
+        </div>
+      </div>
     </div>
   </div>
 </div>

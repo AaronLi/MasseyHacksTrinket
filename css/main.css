@@ -27,11 +27,11 @@
   width: 30vw;
 }
 #pinout{
-  transform: translateX(-50%) translateY(-50%);
   width: 20vw;
-  top: 50%;
-  position: absolute;
-  right: -5vmax;
+  position: relative;
+  float: left;
+  padding-left: 5vw;
+  padding-top: 5vh;
 }
 #pinTable{
   background-color: #333;
@@ -50,6 +50,7 @@
   padding-right: 0.7vw;
   padding-top: 0.7vh;
   padding-bottom: 0.7vh;
+  min-width: 5vw;
   text-align: center;
 }
 @keyframes slideIn{
