@@ -429,7 +429,7 @@ Serial.println(buttonVal); // print the value of the button <br/>
       </table>
       <img id="pinout" src="img/LIS3DH.png"></img>
       <div class="fritzingDiagram">
-        <h3 class="tutorialSubtitle">Wiring:</h3>
+        <h3 class="tutorialSubtitle">Fritzing Diagram:</h3>
         <img class="wiringDiagram" src="img/advancedIO.png"></img>
       </div>
         <div class="programCode">
@@ -440,7 +440,7 @@ Serial.println(buttonVal); // print the value of the button <br/>
             <br/>
             #include &lt;Adafruit_LIS3DH.h&gt;</br>
             #include &lt;Adafruit_Sensor.h&gt;</br></br>
-            Adafruit_LIS3DH lis = Adafruit_LIS3DH(); // initialize accelerometer in I2C mode<br/>
+            Adafruit_LIS3DH lis = Adafruit_LIS3DH(); // Start sensor in I2C mode<br/>
           <br/>
     void setup(){
       <span style="padding:0 0 0 3em; display:block">
@@ -463,7 +463,7 @@ Serial.println(buttonVal); // print the value of the button <br/>
     void loop(){<br/>
       <span style="padding:0 0 0 3em; display:block">
       sensors_event_t event;</br>
-      lis.getEvent(&event); // Read the sensor data and store it in the event object</br></br>
+      lis.getEvent(&event); // Read sensor data and store in event object</br></br>
       </span>
     }<br/>&nbsp;
     </p>
