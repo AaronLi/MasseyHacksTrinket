@@ -1,9 +1,15 @@
 var d = new Date();
-var sections = [].slice.call(document.getElementsByClassName("fullPage"));
-var buttonAnimationBackgrounds = [].slice.call(document.getElementsByClassName("buttonExtend"));
-var buttonLinks = [].slice.call(document.getElementsByClassName("navbarLink"));
-sections.splice(0,1); // first element is title page
+
+var sections = Array.from(document.getElementsByClassName("fullPage"));
+
+var buttonAnimationBackgrounds = Array.from(document.getElementsByClassName("buttonExtend"));
+
+var buttonLinks = document.getElementsByClassName("navbarLink");
+
+sections.splice(0,1) // first element is title page
+
 var currentSection = ( document.documentElement.scrollTop/window.innerHeight);
+
 document.onscroll = function(){
   var scrollPos = document.documentElement.scrollTop-window.innerHeight/2.0;
   var focusedWindow = Math.floor(scrollPos/window.innerHeight);
@@ -20,6 +26,7 @@ document.onscroll = function(){
     }
   }
 }
+
 var lastCalled = d.getTime();
 document.onkeydown = function(event){
   d = new Date();
